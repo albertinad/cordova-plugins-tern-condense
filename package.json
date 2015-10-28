@@ -1,24 +1,27 @@
 {
-  "name": "cordova-plugins-tern-condense",
-  "version": "1.0.0",
-  "description": "A Tern plugin for Condense, that automatically generate tern definitions for cordova plugins.",
-  "main": "cordova-plugins-condense",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/albertinad/cordova-plugins-tern-condense.git"
-  },
-  "keywords": [
-    "tern",
-    "cordova",
-    "plugins",
-    "condense",
-    "code-hinting",
-    "hints"
-  ],
-  "author": "Albertina Durante",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/albertinad/cordova-plugins-tern-condense/issues"
-  },
-  "homepage": "https://github.com/albertinad/cordova-plugins-tern-condense"
+    "name": "cordova-plugins-tern-condense",
+    "version": "1.0.0",
+    "description": "A Tern plugin for Condense, that automatically generate tern definitions for cordova plugins.",
+    "main": "cordova-plugins-condense",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/albertinad/cordova-plugins-tern-condense.git"
+    },
+    "peerDependencies": {
+        "tern": ">=0.7.1"
+    },
+    "keywords": [
+        "tern",
+        "cordova",
+        "plugins",
+        "condense",
+        "code-hinting",
+        "hints"
+    ],
+    "author": "Albertina Durante",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/albertinad/cordova-plugins-tern-condense/issues"
+    },
+    "homepage": "https://github.com/albertinad/cordova-plugins-tern-condense"
 }
