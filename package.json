@@ -7,12 +7,16 @@
         "type": "git",
         "url": "https://github.com/albertinad/cordova-plugins-tern-condense.git"
     },
+    "dependencies": {
+        "elementtree": "0.1.6"
+    },
     "peerDependencies": {
         "tern": ">=0.7.1"
     },
     "keywords": [
         "tern",
         "cordova",
+        "cordova plugins",
         "plugins",
         "condense",
         "code-hinting",
