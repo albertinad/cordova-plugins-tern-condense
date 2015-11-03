@@ -216,6 +216,7 @@ maxerr: 50, browser: true */
             index = cx.origins.indexOf(descriptor),
             origins = [],
             mods = server.mod.cordovaPluginDef.modulesDef,
+            modDef,
             file,
             i;
 
@@ -226,6 +227,8 @@ maxerr: 50, browser: true */
         server.delFile(descriptor);
 
         for (file in mods) {
+            modDef = mods[file];
+            origins.push(modDef.name);
             origins.push(file);
             cx.origins.push(file);
             server.addFile(file, fs.readFileSync(file, "utf8"));

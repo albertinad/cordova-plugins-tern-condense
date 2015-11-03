@@ -47,13 +47,11 @@ maxerr: 50, browser: true */
             modulesOutput = state.output["!define"]["!modules"],
             cordovaPluginDef = infer.cx().parent.mod.cordovaPluginDef,
             name,
-            outputMod,
             moduleDef,
             outputPoint,
             namespace;
 
         for (name in modulesOutput) {
-            outputMod = modulesOutput[name];
             moduleDef = cordovaPluginDef.getModuleDefByName(name);
 
             if (moduleDef) {
@@ -64,17 +62,16 @@ maxerr: 50, browser: true */
                     lastIndex = count - 1,
                     lastNamespace = output,
                     part,
-                    obj,
                     i;
 
                 for (i = 0; i < count; i++) {
                     part = namespace[i];
-                    obj = (i === lastIndex) ? outputPoint : {};
 
                     if (!lastNamespace[part]) {
-                        lastNamespace[part] = obj;
-                        lastNamespace = lastNamespace[part];
+                        lastNamespace[part] = (i === lastIndex) ? outputPoint : {};
                     }
+
+                    lastNamespace = lastNamespace[part];
                 }
             }
         }
