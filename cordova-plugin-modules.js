@@ -1,5 +1,5 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4,
-maxerr: 50, browser: true */
+maxerr: 50 */
 /*global exports, module, require, define, tern */
 
 (function (mod) {
@@ -14,6 +14,10 @@ maxerr: 50, browser: true */
     "use strict";
 
     function preCondenseReach(state) {
+        if (!state.roots["!modules"]) {
+            return;
+        }
+
         // patchModules
         var server = infer.cx().parent,
             modModules = server.mod.modules.modules,
@@ -43,6 +47,10 @@ maxerr: 50, browser: true */
     }
 
     function postCondense(state) {
+        if (!state.output["!define"] || !state.output["!define"]["!modules"]) {
+            return;
+        }
+
         var output = state.output,
             modulesOutput = state.output["!define"]["!modules"],
             cordovaPluginDef = infer.cx().parent.mod.cordovaPluginDef,

@@ -1,5 +1,5 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4,
-maxerr: 50, browser: true */
+maxerr: 50 */
 /*global exports, module, require, define, tern */
 
 (function (mod) {
