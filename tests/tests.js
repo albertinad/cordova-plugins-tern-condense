@@ -1,7 +1,5 @@
 var expect = require("chai").expect,
-    execFile = require("child_process").execFile,
-    fs = require("fs"),
-    path = require("path");
+    execFile = require("child_process").execFile;
 
 describe("Tern condense cordova plugins", function() {
 

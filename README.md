@@ -1,4 +1,4 @@
-# cordova-plugins-tern-condense
+# cordova-plugins-tern-condense [![Build Status](https://travis-ci.org/albertinad/cordova-plugins-tern-condense.svg)](https://travis-ci.org/albertinad/cordova-plugins-tern-condense)
 
 A [Tern](http://ternjs.net) plugin for Condense, that automatically generates tern definitions for cordova plugins.
 

@@ -3,4 +3,6 @@ node_js:
   - 0.10
 sudo: false
 before_install:
+  - git clone https://github.com/ternjs/tern.git
+  - npm --prefix ./tern install
   - npm install -g grunt-cli
