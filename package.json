@@ -7,6 +7,9 @@
         "type": "git",
         "url": "https://github.com/albertinad/cordova-plugins-tern-condense.git"
     },
+    "scripts": {
+        "test": "grunt"
+    },
     "dependencies": {
         "elementtree": "0.1.6"
     },
