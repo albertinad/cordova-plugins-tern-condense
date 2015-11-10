@@ -52,7 +52,7 @@ describe("Tern condense cordova plugins", function () {
             expect(ternDef).to.exist;
             expect(ternDef["!name"]).to.equal("test-plugin-1");
             expect(ternDef["!define"]).to.be.an("object");
-            expect(ternDef.Simple).to.equal("+!modules.Simple");
+            expect(ternDef.Simple).to.equal("!modules.Simple");
             expect(Object.keys(ternDef).length).to.equal(3);
 
             done();
@@ -73,7 +73,7 @@ describe("Tern condense cordova plugins", function () {
             expect(ternDef["!name"]).to.equal("test-plugin-2");
             expect(ternDef["!define"]).to.be.an("object");
             expect(ternDef.navigator).to.be.an("object");
-            expect(ternDef.navigator.simplemodule).to.equal("+!modules.Simple");
+            expect(ternDef.navigator.simplemodule).to.equal("!modules.Simple");
             expect(Object.keys(ternDef).length).to.equal(3);
 
             done();
@@ -94,10 +94,10 @@ describe("Tern condense cordova plugins", function () {
             expect(ternDef["!name"]).to.equal("test-plugin-3");
             expect(ternDef["!define"]).to.be.an("object");
             expect(ternDef.cordovaplugincondense).to.be.an("object");
-            expect(ternDef.cordovaplugincondense.simplemodule).to.equal("+!modules.Simple");
+            expect(ternDef.cordovaplugincondense.simplemodule).to.equal("!modules.Simple");
             expect(ternDef.navigator).to.be.an("object");
-            expect(ternDef.navigator.dummy).to.be.equal("+!modules.SimpleError");
-            expect(ternDef.OtherModule).to.be.equal("+!modules.OtherModule");
+            expect(ternDef.navigator.dummy).to.be.equal("!modules.SimpleError");
+            expect(ternDef.OtherModule).to.be.equal("!modules.OtherModule");
             expect(Object.keys(ternDef).length).to.equal(5);
 
             done();
@@ -118,13 +118,13 @@ describe("Tern condense cordova plugins", function () {
             expect(ternDef["!name"]).to.equal("test-plugin-4");
             expect(ternDef["!define"]).to.be.an("object");
             expect(ternDef.cordovaplugincondense).to.be.an("object");
-            expect(ternDef.cordovaplugincondense.simplemodule).to.equal("+!modules.Simple");
+            expect(ternDef.cordovaplugincondense.simplemodule).to.equal("!modules.Simple");
             expect(ternDef.navigator.pluginerror).to.be.an("object");
-            expect(ternDef.navigator.pluginerror.SimpleError).to.be.equal("+!modules.SimpleError");
+            expect(ternDef.navigator.pluginerror.SimpleError).to.be.equal("!modules.SimpleError");
             expect(ternDef.navigator.dummy).to.be.an("object");
-            expect(ternDef.navigator.dummy.jam).to.be.equal("+!modules.JustAnotherModule");
-            expect(ternDef.navigator.dummy.magic).to.be.equal("+!modules.Magic");
-            expect(ternDef.OtherModule).to.be.equal("+!modules.OtherModule");
+            expect(ternDef.navigator.dummy.jam).to.be.equal("!modules.JustAnotherModule");
+            expect(ternDef.navigator.dummy.magic).to.be.equal("!modules.Magic");
+            expect(ternDef.OtherModule).to.be.equal("!modules.OtherModule");
             expect(Object.keys(ternDef).length).to.equal(5);
 
             done();
