@@ -87,7 +87,7 @@ maxerr: 50 */
             moduleDef = cordovaPluginDef.getModuleDefByName(name);
 
             if (moduleDef) {
-                outputPoint = "+!modules." + name;
+                outputPoint = "!modules." + name;
                 namespace = moduleDef.getNamespace();
 
                 var count = namespace.length,
