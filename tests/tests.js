@@ -50,7 +50,7 @@ describe("Tern condense cordova plugins", function () {
             var ternDef = JSON.parse(stdout);
 
             expect(ternDef).to.exist;
-            expect(ternDef["!name"]).to.equal("test-plugin-1");
+            expect(ternDef["!name"]).to.equal("test-plugin-1-0.0.1");
             expect(ternDef["!define"]).to.be.an("object");
             expect(ternDef.Simple).to.equal("!modules.Simple");
             expect(Object.keys(ternDef).length).to.equal(3);
@@ -70,7 +70,7 @@ describe("Tern condense cordova plugins", function () {
             var ternDef = JSON.parse(stdout);
 
             expect(ternDef).to.exist;
-            expect(ternDef["!name"]).to.equal("test-plugin-2");
+            expect(ternDef["!name"]).to.equal("test-plugin-2-0.0.1");
             expect(ternDef["!define"]).to.be.an("object");
             expect(ternDef.navigator).to.be.an("object");
             expect(ternDef.navigator.simplemodule).to.equal("!modules.Simple");
@@ -91,7 +91,7 @@ describe("Tern condense cordova plugins", function () {
             var ternDef = JSON.parse(stdout);
 
             expect(ternDef).to.exist;
-            expect(ternDef["!name"]).to.equal("test-plugin-3");
+            expect(ternDef["!name"]).to.equal("test-plugin-3-0.0.1");
             expect(ternDef["!define"]).to.be.an("object");
             expect(ternDef.cordovaplugincondense).to.be.an("object");
             expect(ternDef.cordovaplugincondense.simplemodule).to.equal("!modules.Simple");
@@ -115,7 +115,7 @@ describe("Tern condense cordova plugins", function () {
             var ternDef = JSON.parse(stdout);
 
             expect(ternDef).to.exist;
-            expect(ternDef["!name"]).to.equal("test-plugin-4");
+            expect(ternDef["!name"]).to.equal("test-plugin-4-0.0.1");
             expect(ternDef["!define"]).to.be.an("object");
             expect(ternDef.cordovaplugincondense).to.be.an("object");
             expect(ternDef.cordovaplugincondense.simplemodule).to.equal("!modules.Simple");

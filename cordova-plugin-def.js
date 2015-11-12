@@ -77,8 +77,9 @@ maxerr: 50 */
     /**
      * @constructor
      */
-    function PluginDef(id, file, parser) {
+    function PluginDef(id, version, file, parser) {
         this._id = id;
+        this._version = version;
         this._parser = parser;
         this._modulesDef = {};
         this._file = file;
@@ -100,6 +101,13 @@ maxerr: 50 */
             }
         }
     });
+
+    /**
+     * @return {string] The plugin definition full name with the format: "id-version".
+     */
+    PluginDef.prototype.getName = function () {
+        return this._id + "-" + this._version;
+    };
 
     /**
      * @param {string} name
@@ -153,17 +161,15 @@ maxerr: 50 */
     });
 
     PluginParser.prototype.parse = function () {
-        var data = fs.readFileSync(this._descriptor, "utf-8"),
-            id,
-            jsModules,
-            pluginDef,
-            i;
+        var data = fs.readFileSync(this._descriptor, "utf-8");
 
         this._pluginTree = et.parse(data);
-        id = this._pluginTree.getroot().get("id", this._descriptor);
-        jsModules = this._parseJsModules();
 
-        pluginDef = new PluginDef(id, this._descriptor, this);
+        var id = this._pluginTree.getroot().get("id", this._descriptor),
+            version = this._pluginTree.getroot().get("version", "0.0.0"),
+            jsModules = this._parseJsModules(),
+            pluginDef = new PluginDef(id, version, this._descriptor, this),
+            i;
 
         for (i = 0; i < jsModules.length; i++) {
             var jsMod = jsModules[i];
@@ -233,7 +239,7 @@ maxerr: 50 */
         var parser = new PluginParser(descriptor);
         state.server.mod.cordovaPluginDef = parser.parse();
 
-        state.output["!name"] = state.server.mod.cordovaPluginDef.id;
+        state.output["!name"] = state.server.mod.cordovaPluginDef.getName();
 
         var cx = infer.cx(),
             server = state.server,
