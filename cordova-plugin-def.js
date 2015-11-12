@@ -95,19 +95,17 @@ maxerr: 50 */
                 return this._id;
             }
         },
+        "version": {
+            get: function () {
+                return this._version;
+            }
+        },
         "modulesDef": {
             get: function () {
                 return this._modulesDef;
             }
         }
     });
-
-    /**
-     * @return {string] The plugin definition full name with the format: "id-version".
-     */
-    PluginDef.prototype.getName = function () {
-        return this._id + "-" + this._version;
-    };
 
     /**
      * @param {string} name
@@ -239,7 +237,8 @@ maxerr: 50 */
         var parser = new PluginParser(descriptor);
         state.server.mod.cordovaPluginDef = parser.parse();
 
-        state.output["!name"] = state.server.mod.cordovaPluginDef.getName();
+        state.output["!name"] = state.server.mod.cordovaPluginDef.id;
+        state.output["!plugin-version"] = state.server.mod.cordovaPluginDef.version;
 
         var cx = infer.cx(),
             server = state.server,
