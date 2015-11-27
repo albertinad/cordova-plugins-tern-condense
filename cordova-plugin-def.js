@@ -40,6 +40,10 @@ maxerr: 50 */
     var fs = require("fs"),
         et = require("elementtree");
 
+    function normalizePath(path) {
+        return path.replace(/\\/g, "/");
+    }
+
     /**
      * @constructor
      */
@@ -84,7 +88,7 @@ maxerr: 50 */
         this._modulesDef = {};
         this._file = file;
 
-        this._dir = this._file.substring(0, this._file.indexOf(PluginDef.METADATA_FILE));
+        this._dir = normalizePath(this._file.substring(0, this._file.indexOf(PluginDef.METADATA_FILE)));
     }
 
     PluginDef.METADATA_FILE = "plugin.xml";
@@ -113,7 +117,7 @@ maxerr: 50 */
      * @param {string} target
      */
     PluginDef.prototype.addModule = function (name, src, target) {
-        src = this._dir + src;
+        src = this._dir + normalizePath(src);
 
         var mod = this._modulesDef[src];
 
